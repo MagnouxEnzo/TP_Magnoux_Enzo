@@ -13,7 +13,7 @@ class Quest {
         }
     }
 
-    const defaultQuests = [
+    const defaultQuests = [//tableau par defaut au cas où il n'y a pas de quêtes
         new Quest(1, "Quête 1", "Description de la quête 1", "Facile", "1", "A faire"),
         new Quest(2, "Quête 2", "Description de la quête 2", "Moyen", "2", "En cours"),
         new Quest(3, "Quête 3", "Description de la quête 3", "Difficile", "3", "Terminée"),
@@ -34,13 +34,17 @@ export default {
     };
   },
   mounted() {
-    const storedQuests = localStorage.getItem('Quests');
-    localStorage.setItem('Quests', JSON.stringify(storedQuests ? JSON.parse(storedQuests) : defaultQuests));
-    this.Quests = JSON.parse(localStorage.getItem('Quests'));
+    const saved = localStorage.getItem('Quests');
+    if (saved) {//Si il y a des quêtes afficher le tableau de ces quêtes
+        this.Quests = JSON.parse(saved);
+    } else {//sinon afficher le tableau par défaut
+        localStorage.setItem('Quests', JSON.stringify(defaultQuests));
+        this.Quests = defaultQuests;
+    }
   },
   methods: {
     deleteQuest(quest) {
-        this.Quests.splice(this.Quests.indexOf(quest), 1);
+        this.Quests.splice(this.Quests.indexOf(q => Number(q.id) === Number(quest.id)), 1);
         localStorage.setItem('Quests', JSON.stringify(this.Quests));
     },
     editQuest(quest) {
@@ -106,4 +110,7 @@ export default {
 </template>
 
 <style scoped>
+main {
+  padding: 1rem 0;
+}
 </style>

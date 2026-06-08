@@ -5,7 +5,7 @@ import Home from './components/Home.vue';
 import Form from './components/Form.vue';
 import FormEdit from './components/FormEdit.vue';
 
-const routes = [
+const routes = [//Permet d'avoir plusieurs pages
     { path: '/', component: Home },
     { path: '/ajouter', component: Form },
     { path: '/modifier/:id', name: 'FormEdit', component: FormEdit }
