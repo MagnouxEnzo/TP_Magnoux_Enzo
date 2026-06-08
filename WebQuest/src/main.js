@@ -8,7 +8,7 @@ import FormEdit from './components/FormEdit.vue';
 const routes = [
     { path: '/', component: Home },
     { path: '/ajouter', component: Form },
-    { path: '/modifier/:id', component: FormEdit }
+    { path: '/modifier/:id', name: 'FormEdit', component: FormEdit }
 ];
 
 const router = createRouter({

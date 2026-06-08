@@ -11,7 +11,7 @@
         },
         methods: {
             editQuest() {
-                this.$emit('editQuest', { id: this.id });
+                this.$router.push({ name: 'FormEdit', params: { id: this.id } });
             },
             deleteQuest() {
                 this.$emit('deleteQuest', { id: this.id });
