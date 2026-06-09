@@ -7,10 +7,9 @@
         <router-link to="/ajouter" class="rdr-btn">Ajouter des contrats</router-link>
       </nav>
     </header>
-    
     <main class="rdr-main">
-      <div class="rdr-container">//Permet d'insérer ici en dessous du header les différents components 
-                                // de l'application comme le board ou bien les Form 
+      <div class="rdr-container"><!--//Permet d'insérer ici en dessous du header les différents components 
+    // de l'application comme le board ou bien les Form -->
         <router-view />
       </div>
     </main>
